@@ -20,7 +20,9 @@ USAGE:
     1) AZURE_LANGUAGE_ENDPOINT - the endpoint to your Language resource.
     2) AZURE_LANGUAGE_KEY - your Language subscription key
 """
-
+import sys
+import os
+from dotenv import load_dotenv,dotenv_values
 
 def sample_analyze_healthcare_action() -> None:
     import os
@@ -30,9 +32,11 @@ def sample_analyze_healthcare_action() -> None:
         AnalyzeHealthcareEntitiesAction,
         RecognizePiiEntitiesAction,
     )
-
-    endpoint = "https://zhenya-ner-health.cognitiveservices.azure.com/"
-    key = "30fc33f130b346eb9f10f35bd6136135"
+    
+    dotenv_path = os.path.join(sys.path[0], ".env")
+    secrets = dotenv_values(dotenv_path)
+    endpoint = secrets["AZURE_LANG_ENDPOINT"]
+    key = secrets["AZURE_LANG_SECRET"]
 
     text_analytics_client = TextAnalyticsClient(
         endpoint=endpoint,
