@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "azure-lang-spike"
+version = "0.1.0"
+description = ""
+authors = ["Evgeniy Bliacher <evgeniy.bliacher@alterahealth.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+azure-ai-textanalytics = "^5.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
